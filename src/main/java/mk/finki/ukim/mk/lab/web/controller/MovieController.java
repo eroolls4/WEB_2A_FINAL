@@ -27,6 +27,7 @@ public class MovieController {
         model.addAttribute("movies", movies);
         return "listMovies";
     }
+
     @PostMapping("/add")
     public String saveMovie(@RequestParam String movieTitle,
                             @RequestParam String summary,
@@ -35,12 +36,14 @@ public class MovieController {
         this.movieService.saveMovie(movieTitle, summary, rating, productionId);
         return "redirect:/movies";
     }
+
     @PostMapping("/movies/edit/{movieId}")
     public String editMovie(@PathVariable Long movieId,
                             @RequestParam String movieTitle,
                             @RequestParam String summary,
                             @RequestParam double rating,
                             @RequestParam Long productionId) {
+
         Movie movie = this.movieService.findById(movieId).get();
         movie.setTitle(movieTitle);
         movie.setSummary(summary);
@@ -48,6 +51,7 @@ public class MovieController {
         movie.setProduction(productionService.findById(productionId).get());
         return "redirect:/movies";
     }
+
     @PostMapping("/delete/{id}")
     public String deleteProduct(@PathVariable Long id) {
         this.movieService.deleteById(id);
@@ -65,6 +69,7 @@ public class MovieController {
         }
         return "redirect:/movies?error=MovieNotFound";
     }
+
     @GetMapping("/add-form")
     public String getAddMoviePage(Model model) {
         List<Production> productions = this.productionService.findAll();

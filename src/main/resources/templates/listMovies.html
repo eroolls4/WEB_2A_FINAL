@@ -19,9 +19,11 @@
 </head>
 
 <body>
-<header>
-    <h1>Web Programing</h1>
-</header>
+<section class="jumbotron text-center">
+    <div class="container">
+        <h1 class="jumbotron-heading">WEB PROGRAMMING MOVIE-APP </h1>
+    </div>
+</section>
 
 
 <div class="container mb-4">
@@ -29,9 +31,9 @@
     <form th:method="post" th:action="@{/filter}">
         <h2>Choose filters:</h2>
         <label>Includes this text:</label>
-        <input type="text" name="textFilter">
+        <input type="text" name="textFilter" required>
         <label>Rating of at least:</label>
-        <input type="number" name="ratingFilter" min="5.0" max="10.0" step="0.1">
+        <input type="number" name="ratingFilter" min="5.0" max="10.0" step="0.1" required>
         <input type="submit" value="Filter" >
     </form>
 
@@ -61,6 +63,7 @@
                             <td th:text="${movie.getRating()}"></td>
                             <td th:text="${movie.getProduction() !=null}? ${movie.getProduction().getName()}:'No Production'"></td>
                             <td class="text-right">
+
                                 <th:block>
                                     <form th:action="@{'/movies/delete/{id}' (id=${movie.getId()})}"
                                           th:method="DELETE">
@@ -70,6 +73,7 @@
                                         </button>
                                     </form>
                                 </th:block>
+
                                     <th:block>
                                         <a th:href="@{'/movies/edit-form/{id}' (id=${movie.getId()})}"
                                            class="btn btn-sm btn-info edit-product">
@@ -84,10 +88,13 @@
                 </div>
                 <h2>Choose number of tickets:</h2>
                 <label>
-                    <input type="number" name="numTickets" min="1" max="10">
+                    <input type="number" name="numTickets" min="1" max="10" required>
                 </label><br/>
-                <br/>
-                <input type="submit" value="Order">
+                <h2>Enter Your  Name</h2>
+                <input type="text" name="userName"></br>
+                <h2>CLICK BELOW TO MAKE A ORDER!!!</h2>
+                <input type="submit" value="Make Order"  required></br>
+                </br>
             </form>
             <div>
                 <a th:href="@{/movies/add-form}" class="btn btn-sm btn-success">
@@ -97,5 +104,55 @@
         </div>
     </div>
 </div>
+
+
+<!-- FOOTER -->
+<footer class="jumbotron text-white bg-dark mt-xl-5" xmlns:th="http://www.thymeleaf.org">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-3 col-lg-4 col-xl-3">
+                <h5>About</h5>
+                <hr class="bg-white mb-2 mt-0 d-inline-block mx-auto w-25">
+                <p class="mb-0">
+                    Le Lorem Ipsum est simplement du faux texte employé dans la composition et la mise en page avant
+                    impression.
+                </p>
+            </div>
+
+            <div class="col-md-2 col-lg-2 col-xl-2 mx-auto">
+                <h5>Informations</h5>
+                <hr class="bg-white mb-2 mt-0 d-inline-block mx-auto w-25">
+                <ul class="list-unstyled">
+                    <li><a href="">Link 1</a></li>
+                    <li><a href="">Link 2</a></li>
+                    <li><a href="">Link 3</a></li>
+                    <li><a href="">Link 4</a></li>
+                </ul>
+            </div>
+
+            <div class="col-md-3 col-lg-2 col-xl-2 mx-auto">
+                <h5>Others links</h5>
+                <hr class="bg-white mb-2 mt-0 d-inline-block mx-auto w-25">
+                <ul class="list-unstyled">
+                    <li><a href="">Link 1</a></li>
+                    <li><a href="">Link 2</a></li>
+                    <li><a href="">Link 3</a></li>
+                    <li><a href="">Link 4</a></li>
+                </ul>
+            </div>
+
+            <div class="col-md-4 col-lg-3 col-xl-3">
+                <h5>Contact</h5>
+                <hr class="bg-white mb-2 mt-0 d-inline-block mx-auto w-25">
+                <ul class="list-unstyled">
+                    <li><i class="fa fa-home mr-2"></i> My company</li>
+                    <li><i class="fa fa-envelope mr-2"></i> email@example.com</li>
+                    <li><i class="fa fa-phone mr-2"></i> + 33 12 14 15 16</li>
+                    <li><i class="fa fa-print mr-2"></i> + 33 12 14 15 16</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</footer>
 </body>
 </html>

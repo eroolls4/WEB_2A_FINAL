@@ -18,10 +18,13 @@
   </style>
 </head>
 <body>
-<section>
-  <header>
-    <h1>Movie Order page - Order confirmation </h1>
-  </header>
+<div>
+  <section class="jumbotron text-center">
+    <div class="container">
+      <h1 class="jumbotron-heading">WEB PROGRAMMING MOVIE-APP </h1>
+    </div>
+  </section>
+
   <table>
     <tr>
       <th colspan="2">
@@ -30,21 +33,21 @@
     </tr>
     <tr>
       <td><b>Client Name </b></td>
-      <td >Petko Petkov</td>
+      <td  th:text="${userName}"></td>
     </tr>
     <tr>
       <td><b>Client IP Address</b></td>
-      <td>127.0.0.1</td>
+      <td th:text="${clientIp}"></td>
     </tr>
     <tr>
       <td><b>Ticket for Movie</b></td>
-      <td th:text="${movieTitle}">Oppenheimer</td>
+      <td th:text="${movieTitle}"></td>
     </tr>
     <tr>
       <td><b>Number of tickets</b></td>
-      <td th:text="${numTickets}">2</td>
+      <td th:text="${numTickets}"></td>
     </tr>
   </table>
-</section>
+</div>
 </body>
 </html>
