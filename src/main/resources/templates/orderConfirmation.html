@@ -25,29 +25,36 @@
     </div>
   </section>
 
-  <table>
-    <tr>
-      <th colspan="2">
-        Your Order Status
-      </th>
-    </tr>
-    <tr>
-      <td><b>Client Name </b></td>
-      <td  th:text="${userName}"></td>
-    </tr>
-    <tr>
-      <td><b>Client IP Address</b></td>
-      <td th:text="${clientIp}"></td>
-    </tr>
-    <tr>
-      <td><b>Ticket for Movie</b></td>
-      <td th:text="${movieTitle}"></td>
-    </tr>
-    <tr>
-      <td><b>Number of tickets</b></td>
-      <td th:text="${numTickets}"></td>
-    </tr>
-  </table>
+  <form th:action="@{/ticketOrder}" th:method="POST">
+    <table class="table">
+      <tr>
+        <th colspan="2">
+          Your Order Status
+        </th>
+      </tr>
+      <tr>
+        <td><b>Client Name </b></td>
+        <td><input type="text" name="userName" th:value="${userName}" required></td>
+      </tr>
+      <tr>
+        <td><b>Client IP Address</b></td>
+        <td><input type="text" name="clientIp" th:value="${clientIp}" required></td>
+      </tr>
+      <tr>
+        <td><b>Ticket for Movie</b></td>
+        <td><input type="text" name="movieTitle" th:value="${movieTitle}" required></td>
+      </tr>
+      <tr>
+        <td><b>Number of tickets</b></td>
+        <td><input type="number" name="numTickets" th:value="${numTickets}" min="1" max="10" required></td>
+      </tr>
+      <tr>
+        <td colspan="2" class="text-center">
+          <input type="submit" value="Submit Order" class="btn btn-primary">
+        </td>
+      </tr>
+    </table>
+  </form>
 </div>
 </body>
 </html>

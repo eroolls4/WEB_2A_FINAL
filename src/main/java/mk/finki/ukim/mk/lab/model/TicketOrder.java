@@ -7,9 +7,9 @@ public class TicketOrder {
     public String movieTitle;
     public String clientName;
     public String clientAddress;
-    public Long numberOfTickets;
+    public Integer numberOfTickets;
 
-    public TicketOrder(String movieTitle, String clientName, String clientAddress, Long numberOfTickets) {
+    public TicketOrder(String movieTitle, String clientName, String clientAddress, Integer numberOfTickets) {
         this.movieTitle = movieTitle;
         this.clientName = clientName;
         this.clientAddress = clientAddress;

@@ -3,5 +3,7 @@ package mk.finki.ukim.mk.lab.service;
 import mk.finki.ukim.mk.lab.model.TicketOrder;
 
 public interface TicketOrderService {
-    TicketOrder placeOrder(String movieTitle, String clientName, String address, Long numberOfTickets);
+    TicketOrder getCurrentOrder();
+    TicketOrder placeOrder(String movieTitle, String clientName, String address, Integer numberOfTickets);
+    void delete();
 }

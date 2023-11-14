@@ -93,7 +93,10 @@
                 <h2>Enter Your  Name</h2>
                 <input type="text" name="userName"></br>
                 <h2>CLICK BELOW TO MAKE A ORDER!!!</h2>
-                <input type="submit" value="Make Order"  required></br>
+                <input type="submit" value="Make Order" required></br>
+                <a th:href="@{/ticketOrder}" class="btn btn-sm btn-success">
+                    <i class="fa fa-plus">Checkout Ticket</i>
+                </a>
                 </br>
             </form>
             <div>
@@ -105,8 +108,6 @@
     </div>
 </div>
 
-
-<!-- FOOTER -->
 <footer class="jumbotron text-white bg-dark mt-xl-5" xmlns:th="http://www.thymeleaf.org">
     <div class="container">
         <div class="row">

@@ -76,6 +76,4 @@ public class MovieController {
         model.addAttribute("productions", productions);
         return "add-movie";
     }
-
-
 }
